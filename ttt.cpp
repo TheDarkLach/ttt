@@ -45,8 +45,7 @@ int checkwin(int square[3][3])
 }
 
 
-
-void board(int square[3][3])//oid showBoard(string board[3][3])
+void board(int square[3][3])
 {
 
     //system("cls");
@@ -74,17 +73,16 @@ void board(int square[3][3])//oid showBoard(string board[3][3])
 int main()
 {
 
-  int checkwin();
-  void board();
+  //int checkwin();
 
-  int square[3][3];
-
-  int player = 1, i, choice;
+  int square[3][3] = {1,4,7,2,5,8,3,6,9};
+  board(square);
+	int player = 1, i, choice;
 
     char mark;
     do
     {
-        board();
+        board(square);
         
         player = (player % 2) ? 1 : 2;
 
@@ -129,11 +127,11 @@ int main()
             cin.ignore();
             cin.get();
         }
-        i=checkwin();
+        i=checkwin(square);
 
         player++;
     }while(i==-1);
-    board();
+    board(square);
     if(i==1)
 
         cout<<"==>\aPlayer "<<--player<<" win ";
