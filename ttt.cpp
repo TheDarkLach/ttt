@@ -45,16 +45,11 @@ int checkwin(int square[3][3])
 }
 
 
-/*******************************************************************
-     FUNCTION TO DRAW BOARD OF TIC TAC TOE WITH PLAYERS MARK
-********************************************************************/
-
 
 void board(int square[3][3])//oid showBoard(string board[3][3])
 {
 
     //system("cls");
-    //cout << "\n\n\tTic Tac Toe\n\n";
 
     cout << "Player 1 (X)  -  Player 2 (O)" << endl << endl;
     cout << endl;
@@ -84,7 +79,7 @@ int main()
 
   int square[3][3];
 
-	int player = 1, i, choice;
+  int player = 1, i, choice;
 
     char mark;
     do
