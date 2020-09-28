@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int checkwin(int square[3][3])
+int checkwin(char square[3][3])
 {
     //row 1
     if (square[0][0] == square[1][0] && square[1][0] == square[2][0])
@@ -45,7 +45,7 @@ int checkwin(int square[3][3])
 }
 
 
-void board(int square[3][3])
+void board(char square[3][3])
 {
 
     //system("cls");
@@ -75,8 +75,8 @@ int main()
 
   //int checkwin();
 
-  int square[3][3] = {1,4,7,2,5,8,3,6,9};
-  board(square);
+  char square[3][3] = {'1','4','7','2','5','8','3','6','9'};
+  //board(square);
 	int player = 1, i, choice;
 
     char mark;
@@ -134,9 +134,9 @@ int main()
     board(square);
     if(i==1)
 
-        cout<<"==>\aPlayer "<<--player<<" win ";
+       cout << "Player " << --player << " win ";
     else
-        cout<<"==>\aGame draw";
+       cout << "Game draw";
 
     cin.ignore();
     cin.get();
