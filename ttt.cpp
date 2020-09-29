@@ -3,142 +3,155 @@ using namespace std;
 
 int checkwin(char square[3][3])
 {
-    //row 1
-    if (square[0][0] == square[1][0] && square[1][0] == square[2][0])
+  //row 1
+  if (square[0][0] == square[1][0] && square[1][0] == square[2][0])
 
-        return 1;
-    //row 2
-    else if (square[0][1] == square[1][1] && square[1][1] == square[2][1])
+    return 1;
+  //row 2
+  else if (square[0][1] == square[1][1] && square[1][1] == square[2][1])
 
-        return 1;
-    //row 3
-    else if (square[2][0] == square[2][1] && square[2][1] == square[2][2])
+    return 1;
+  //row 3
+  else if (square[2][0] == square[2][1] && square[2][1] == square[2][2])
 
-        return 1;
-    //column 1
-    else if (square[0][0] == square[0][1] && square[0][1] == square[0][2])
+    return 1;
+  //column 1
+  else if (square[0][0] == square[0][1] && square[0][1] == square[0][2])
 
-        return 1; 
-    //column 2
-    else if (square[1][0] == square[1][1] && square[1][1] == square[1][2])
+    return 1;
+  //column 2
+  else if (square[1][0] == square[1][1] && square[1][1] == square[1][2])
 
-        return 1;
-    //column 3
-    else if (square[2][0] == square[2][1] && square[2][1] == square[2][2])
+    return 1;
+  //column 3
+  else if (square[2][0] == square[2][1] && square[2][1] == square[2][2])
 
-        return 1;
+    return 1;
 
-    //diagonals
-    else if (square[0][0] == square[1][1] && square[1][1] == square[2][2])
+  //diagonals
+  else if (square[0][0] == square[1][1] && square[1][1] == square[2][2])
 
-        return 1;
-    else if (square[2][0] == square[1][1] && square[1][1] == square[0][2])
+    return 1;
+  else if (square[2][0] == square[1][1] && square[1][1] == square[0][2])
 
-        return 1;
-    else if (square[0][0] != '1' && square[1][0] != '2' && square[2][0] != '3' 
-                    && square[0][1] != '4' && square[1][1] != '5' && square[2][1] != '6' 
-                  && square[0][2] != '7' && square[1][2] != '8' && square[2][2] != '9')
+    return 1;
+  else if (square[0][0] != '1' && square[1][0] != '2' && square[2][0] != '3'
+	                       && square[0][1] != '4' && square[1][1] != '5' && square[2][1] != '6'
+	   && square[0][2] != '7' && square[1][2] != '8' && square[2][2] != '9')
 
-        return 0;
-    else
-        return -1;
+    return 0;
+  else
+    return -1;
 }
 
 
 void board(char square[3][3])
 {
 
-    //system("cls");
+  //system("cls");
 
-    cout << "Player 1 (X)  -  Player 2 (O)" << endl << endl;
-    cout << endl;
+  cout << "\nPlayer 1 (X)  -  Player 2 (O)" << endl << endl;
+  cout << endl;
 
-    cout << "     |     |     " << endl;
-    cout << "  " << square[0][0] << "  |  " << square[1][0] << "  |  " << square[2][0] << endl;
+  cout << "     |     |     " << endl;
+  cout << "  " << square[0][0] << "  |  " << square[1][0] << "  |  " << square[2][0] << endl;
 
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
+  cout << "_____|_____|_____" << endl;
+  cout << "     |     |     " << endl;
 
-    cout << "  " << square[0][1] << "  |  " << square[1][1] << "  |  " << square[2][1] << endl;
+  cout << "  " << square[0][1] << "  |  " << square[1][1] << "  |  " << square[2][1] << endl;
 
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
+  cout << "_____|_____|_____" << endl;
+  cout << "     |     |     " << endl;
 
-    cout << "  " << square[0][2] << "  |  " << square[1][2] << "  |  " << square[2][2] << endl;
+  cout << "  " << square[0][2] << "  |  " << square[1][2] << "  |  " << square[2][2] << endl;
 
-    cout << "     |     |     " << endl << endl;
+  cout << "     |     |     " << endl << endl;
 }
 
 
 int main()
 {
-
-  //int checkwin();
-
   char square[3][3] = {'1','4','7','2','5','8','3','6','9'};
-  //board(square);
-	int player = 1, i, choice;
+  int player = 1, i, choice, win;
 
-    char mark;
-    do
-    {
-        board(square);
-        
-        player = (player % 2) ? 1 : 2;
+  char mark;
+      do
+	{
+	  board(square);
 
-        cout << "Player " << player << ", enter a number:  ";
-        cin >> choice;
+	  player = (player % 2) ? 1 : 2;
+	  //hoperfully counts wins
+	  win = (win % 2) ? 0 : 0;
 
-        mark=(player == 1) ? 'X' : 'O';
+	  cout << "Player " << player << ", enter a number:  ";
+	  cin >> choice;
 
-        if (choice == 1 && square[0][0] == '1')
+	  mark=(player == 1) ? 'X' : 'O';
 
-            square[0][0] = mark;
-        else if (choice == 2 && square[1][0] == '2')
+	  if (choice == 1 && square[0][0] == '1')
 
-            square[1][0] = mark;
-        else if (choice == 3 && square[2][0] == '3')
+	    square[0][0] = mark;
+	  else if (choice == 2 && square[1][0] == '2')
 
-            square[2][0] = mark;
-        else if (choice == 4 && square[0][1] == '4')
+	    square[1][0] = mark;
+	  else if (choice == 3 && square[2][0] == '3')
 
-            square[0][1] = mark;
-        else if (choice == 5 && square[1][1] == '5')
+	    square[2][0] = mark;
+	  else if (choice == 4 && square[0][1] == '4')
 
-            square[1][1] = mark;
-        else if (choice == 6 && square[2][1] == '6')
+	    square[0][1] = mark;
+	  else if (choice == 5 && square[1][1] == '5')
 
-            square[2][1] = mark;
-        else if (choice == 7 && square[0][2] == '7')
+	    square[1][1] = mark;
+	  else if (choice == 6 && square[2][1] == '6')
 
-            square[0][2] = mark;
-        else if (choice == 8 && square[1][2] == '8')
+	    square[2][1] = mark;
+	  else if (choice == 7 && square[0][2] == '7')
 
-            square[1][2] = mark;
-        else if (choice == 9 && square[2][2] == '9')
+	    square[0][2] = mark;
+	  else if (choice == 8 && square[1][2] == '8')
 
-            square[2][2] = mark;
-        else
-        {
-            cout<<"Invalid move ";
+	    square[1][2] = mark;
+	  else if (choice == 9 && square[2][2] == '9')
 
-            //go back to the turn
-            player--;
-            cin.ignore();
-            cin.get();
-        }
-        i=checkwin(square);
+	    square[2][2] = mark;
+	  else
+	    {
+	      cout<<"Invalid move ";
 
-        player++;
-    }while(i==-1);
-    board(square);
-    if(i==1)
+	      //go back to the turn
+	      player--;
+	      cin.ignore();
+	      cin.get();
+	    }
+	  i=checkwin(square);
 
-       cout << "Player " << --player << " win ";
-    else
-       cout << "Game draw";
+	  player++;
 
-    cin.ignore();
-    cin.get();
-    return 0;
+	  if(i==1)
+	    {
+	      cout << "Player " << --player << " wins ";
+	      win++;
+	      cout << "\nWins: " << win;
+
+	      char square[3][3] = {'1','4','7','2','5','8','3','6','9'};
+	      cout<< "clear";
+	      i = -1;
+	    }
+	  else
+	    {
+	      cout << "Game draw";
+
+	      char square[3][3] = {'1','4','7','2','5','8','3','6','9'};
+	      i = -1;
+
+	    }
+
+	}while(i==-1);
+      board(square);
+
+      cin.ignore();
+      cin.get();
+      return 0;
 }
