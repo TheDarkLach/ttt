@@ -1,3 +1,3 @@
 # ttt
 
-Will not run due to "undefined reference to 'board()'
+this took longer then it should have
